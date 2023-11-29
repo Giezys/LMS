@@ -27,15 +27,15 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('home') }}" class="nav-link {{ is_active('home') }}">
-                    <i class="nav-icon fas fa-home"></i> {{ __('Home') }}
+                <a href="{{ route('dashboard') }}" class="nav-link {{ is_active('dashboard') }}">
+                    <i class="nav-icon fas fa-dashboard"></i> {{ __('Dashboard') }}
                 </a>
             </li>
 
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('stream') }}" class="nav-link  {{ is_active('stream') }}">
+                <a href="{{ route('bahan_ajar') }}" class="nav-link  {{ is_active('bahan_ajar') }}">
                     <i class="nav-icon fas fa-play"></i>
-                    {{ __('Stream') }}
+                    {{ __('Bahan Ajar') }}
                     <span class="right badge badge-danger">New</span>
                 </a>
             </li>
@@ -60,7 +60,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="{{ route('home') }}" class="brand-link">
+        <a href="{{ route('dashboard') }}" class="brand-link">
             <img src="{{  Config::get('settings.logo') }}" alt="{{  Config::get('settings.name') }}" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">{{  Config::get('settings.name') }} <span class="right badge badge-danger">beta</span></span>
@@ -83,18 +83,18 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                     <li class="nav-item has-treeview ">
-                        <a href="{{ route('home') }}" class="nav-link {{ is_active('home') }}">
+                        <a href="{{ route('dashboard') }}" class="nav-link {{ is_active('dashboard') }}">
                             <i class="nav-icon fas fa-home"></i>
                             <p>
-                                {{ __('Home') }}
+                                {{ __('Dashboard') }}
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('stream') }}" class="nav-link  {{ is_active('stream') }}">
+                        <a href="{{ route('bahan_ajar') }}" class="nav-link  {{ is_active('bahan_ajar') }}">
                             <i class="nav-icon fas fa-play"></i>
                             <p>
-                                {{ __('Stream') }}
+                                {{ __('Bahan Ajar') }}
                                 <span class="right badge badge-danger">New</span>
                             </p>
                         </a>

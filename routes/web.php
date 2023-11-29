@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('verified');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/stream', 'HomeController@stream')->name('stream')->middleware('verified');
+Route::get('/bahan_ajar', 'DashboardController@bahan_ajar')->name('bahan_ajar')->middleware('verified');
 
 Route::group( ['middleware' => ['auth']], function() {
     Route::resource('courses', 'CourseController');

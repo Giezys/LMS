@@ -7,7 +7,7 @@ use App\Entities\Message;
 use LMS\Modules\Courses\Repositories\Contracts\CourseRepositoryInterface;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,16 +29,16 @@ class HomeController extends Controller
     {
         $courses = $courseRepository->allAvailable();
 
-        return view('home', compact('courses'));
+        return view('dashboard', compact('courses'));
     }
 
     /**
-     * Show stream and chat
+     * Show bahan ajar and chat
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function stream()
+    public function bahan_ajar()
     {
-        return view('stream');
+        return view('bahan_ajar');
     }
 
 }

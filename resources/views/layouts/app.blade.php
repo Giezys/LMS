@@ -9,23 +9,76 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @include('includes.analytics')
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #C0C0C0;
+        }
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .btn-success {
+            background-color: #F0FFF0;
+            border-color: #28a745;
+            font-weight: bold;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+        .dropdown-menu {
+            border-color: #28a745;
+        }
+
+        .dropdown-item {
+            color: #333;
+        }
+
+        .dropdown-item:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        main {
+            background-color: ;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3&appId=358872005021678"></script>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -37,8 +90,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li>
-                            <a class="nav-link btn btn-success" href="{{ route('stream') }}">@lang('Stream')</a>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-success" href="{{ route('bahan_ajar') }}">@lang('Stream')</a>
                         </li>
                     </ul>
 
@@ -78,9 +131,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="container my-4">
             @yield('content')
         </main>
+
+        <footer>
+            &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
+        </footer>
     </div>
 </body>
 </html>
