@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('login', 'LoginController@authenticate')->name('login');
 Route::get('/', 'DashboardController@index')->name('dashboard')->middleware('verified');
 
 Auth::routes(['verify' => true]);
@@ -24,7 +24,15 @@ Route::group( ['middleware' => ['auth']], function() {
     Route::get('/lessons/create/{course}', 'LessonController@create')->name('lessons.create');
 });
 
+Route::group(['middleware' => 'admin'], function () {
 
+});
+Route::group(['middleware' => 'trainer'], function () {
+
+});
+Route::group(['middleware' => 'member'], function () {
+
+});
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });

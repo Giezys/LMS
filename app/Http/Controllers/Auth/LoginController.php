@@ -9,17 +9,25 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect()->intended('/admin/dashboard');
+            } elseif ($user->role === 'trainer') {
+                return redirect()->intended('/trainer/dashboard');
+            }else {
+                return redirect()->intended('/member/dashboard');
+            }
+        }
+            return back()->withErrors(['email' => 'Invalid credentials']);
+    }
+
+    
     use AuthenticatesUsers;
 
     /**
